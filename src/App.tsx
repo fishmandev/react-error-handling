@@ -1,9 +1,11 @@
 import './App.css'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
-import { Fallback } from './pages/Fallback'
 import { Layout } from './pages/Layout'
-import { Page1 } from './pages/Page1'
-import { Page2 } from './pages/Page2'
+import { lazy, Suspense } from 'react'
+import Loader from './components/Loader'
+
+const Page1 = lazy(() => import('./pages/Page1'))
+const Page2 = lazy(() => import('./pages/Page2'))
 
 let router = createBrowserRouter([
   {
@@ -12,7 +14,11 @@ let router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Outlet />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        ),
         children: [
           {
             path: '/page1',
@@ -29,5 +35,5 @@ let router = createBrowserRouter([
 ])
 
 export default function App() {
-  return <RouterProvider router={router} fallbackElement={<Fallback />} />
+  return <RouterProvider router={router} />
 }

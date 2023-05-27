@@ -1,1 +1,3 @@
-export const Page2: React.FC = (): JSX.Element => <p>Page 2</p>
+const Page2: React.FC = (): JSX.Element => <h3>Page 2</h3>
+
+export default Page2
