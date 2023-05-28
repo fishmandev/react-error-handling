@@ -1,0 +1,39 @@
+.modal {
+  position: relative;
+  background-color: #fff;
+  width: 500px;
+  height: 200px;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 0 15px 160px;
+}
+
+.modal .footer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.modal-wrapper {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(107, 114, 128, 0.5);
+  z-index: 9;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.modal button {
+  padding: 10px;
+}
+
+.modal .body {
+  padding: 20px;
+}
